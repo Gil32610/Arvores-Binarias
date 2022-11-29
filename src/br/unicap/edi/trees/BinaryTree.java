@@ -48,10 +48,13 @@ public class BinaryTree<T extends Comparable<T>> {
         Node<T> aux, novo;
         aux = this.root;
         novo = new Node<>(content);
+        if (this.isEmpty()) {
+            this.root = novo;
+        }
         while (true) {
             if (content.compareTo(aux.getContent()) == 0) {
                 System.out.println("Repeated");
-                break;  
+                break;
             } else if (content.compareTo(aux.getContent()) < 0) { // inserção no lado esquerdo
                 if (aux.getLeft() != null) {
                     aux = aux.getLeft();
