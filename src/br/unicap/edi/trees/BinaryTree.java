@@ -76,4 +76,20 @@ public class BinaryTree<T extends Comparable<T>> {
         }
     }
 
+    public void preOrdem() {
+        if (this.isEmpty()) {
+            System.out.println("Empty tree");
+        } else {
+            percorrerPreOrdem(this.root);
+        }
+    }
+
+    private void percorrerPreOrdem(Node<T> root2) {
+        if (root != null) {
+            System.out.println(root.getContent());
+            percorrerPreOrdem(root2.getLeft());
+            percorrerPreOrdem(root2.getRight());
+        }
+    }
+
 }
