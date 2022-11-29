@@ -28,11 +28,11 @@ public class BinaryTree<T extends Comparable<T>> {
         this.root = root;
     }
 
-    public void inOrder(){
-        if(this.isEmpty()){
+    public void inOrder() {
+        if (this.isEmpty()) {
             System.out.println("Arvore vazia");
-        }else{
-            percorrerEmOrdem(this.root)
+        } else {
+            percorrerEmOrdem(this.root);
         }
     }
 
@@ -41,6 +41,34 @@ public class BinaryTree<T extends Comparable<T>> {
             percorrerEmOrdem(root2.getLeft());
             System.out.println(root2.getContent());
             percorrerEmOrdem(root2.getRight());
+        }
+    }
+
+    public void inserir(T content) {
+        Node<T> aux, novo;
+        aux = this.root;
+        novo = new Node<>(content);
+        while (true) {
+            if (content.compareTo(aux.getContent()) == 0) {
+                System.out.println("Repeated");
+                break;  
+            } else if (content.compareTo(aux.getContent()) < 0) { // inserção no lado esquerdo
+                if (aux.getLeft() != null) {
+                    aux = aux.getLeft();
+                } else {
+                    // inserir
+                    aux.setLeft(novo);
+                    break;
+                }
+            } else {// inserção no lado direito
+                if (aux.getRight() != null) {
+                    aux = aux.getRight();
+                } else {
+                    // inserir
+                    aux.setRight(novo);
+                    break;
+                }
+            }
         }
     }
 
