@@ -50,6 +50,7 @@ public class BinaryTree<T extends Comparable<T>> {
         novo = new Node<>(content);
         if (this.isEmpty()) {
             this.root = novo;
+            return;
         }
         while (true) {
             if (content.compareTo(aux.getContent()) == 0) {
